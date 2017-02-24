@@ -46,14 +46,16 @@ namespace Liste
                 Ime = "Vlado",
                 Placa = 25000
             };
-            Customer[] customerArray = new Customer[4];
-            customerArray[0] = customer1;
-            customerArray[1] = customer2;
-            customerArray[2] = customer3;
-            customerArray[3] = customer4;
+            List<Customer> listCustomers = new List<Customer>();
+            listCustomers.Add(customer1);
+            listCustomers.Add(customer2);
+            listCustomers.Add(customer3);
+            listCustomers.Add(customer4);
 
-            List<Customer>listCustomer = customerArray.ToList();
-            foreach(Customer cust in listCustomer)
+            Customer[] customerArray = new Customer[4];
+            customerArray = listCustomers.ToArray();
+
+            foreach(Customer cust in customerArray)
             {
                 Console.WriteLine($"ID = {cust.ID}, Ime = {cust.Ime}, Placa = {cust.Placa}");
             }
