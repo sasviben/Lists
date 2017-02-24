@@ -69,8 +69,9 @@ namespace Liste
             listCorporateCustomers.Add(customer5);
 
 
-            listRetailCustomers.InsertRange(0, listCorporateCustomers);//omogucava da ubacimo drugu listu elemenata u prvu listu elemenata na određenu poziciju
+            listRetailCustomers.InsertRange(3, listCorporateCustomers);//omogucava da ubacimo drugu listu elemenata u prvu listu elemenata na određenu poziciju
 
+            listRetailCustomers.RemoveRange(3, 2);//uklanja zadani raspon elemenata u listi, pocetni index u listi i broj elemenata koje treba ukloniti
             foreach (Customer c1 in listRetailCustomers)
             {
                 Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
