@@ -40,18 +40,23 @@ namespace Liste
                 Ime = "Hrvoje",
                 Placa = 15000
             };
+            Customer customer4 = new Customer()
+            {
+                ID = 13,
+                Ime = "Vlado",
+                Placa = 25000
+            };
 
             List<Customer> listCust = new List<Customer>();
             listCust.Add(customer1);
             listCust.Add(customer2);
             listCust.Add(customer3);
+            listCust.Add(customer4);
 
-            List<Customer> customers = listCust.FindAll(cust => cust.Placa > 6000);// vraca sve elemente koji odgovaraju uvijetu koji je definiran lambda izrazom
-
-            foreach(Customer customer in customers)
-            {
-                Console.WriteLine($"ID = {customer.ID}, Ime = {customer.Ime}, Placa = {customer.Placa}");
-            }
+            int index = listCust.FindIndex(cust => cust.Placa > 6000);//metoda vraca index prvog elementa koji odgovara uvijetu koji je definiran lambda izrazom.
+            Console.WriteLine("Index = " + index);
+            int index2 = listCust.FindIndex(2, cust => cust.Placa > 6000);//metoda vraca index prvog elementa koji odgovara uvijetu koji je definiran lambda izrazom i rasponu koji smo zadali
+          
         }
     }
 }
