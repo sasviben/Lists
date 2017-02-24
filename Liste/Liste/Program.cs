@@ -68,15 +68,10 @@ namespace Liste
             listCorporateCustomers.Add(customer4);
             listCorporateCustomers.Add(customer5);
 
-            listRetailCustomers.AddRange(listCorporateCustomers);//ubacuje listCorporateCustomers listu na kraj listRetailCustomers liste
-            foreach (Customer c in listRetailCustomers)
-            {
-                Console.WriteLine($"ID = {c.ID}, Ime = {c.Ime}, Placa = {c.Placa}, Tip = {c.Tip}");
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            List<Customer> cust = listRetailCustomers.GetRange(3, 2);//vraca listu iz druge liste. Prvi parametar je index pocetka liste, a drugi parametar je broj elemenata koje treba vratiti
-            foreach (Customer c1 in cust)
+
+            listRetailCustomers.InsertRange(0, listCorporateCustomers);//omogucava da ubacimo drugu listu elemenata u prvu listu elemenata na određenu poziciju
+
+            foreach (Customer c1 in listRetailCustomers)
             {
                 Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
             }
