@@ -46,15 +46,18 @@ namespace Liste
                 Ime = "Vlado",
                 Placa = 25000
             };
+            Customer[] customerArray = new Customer[4];
+            customerArray[0] = customer1;
+            customerArray[1] = customer2;
+            customerArray[2] = customer3;
+            customerArray[3] = customer4;
 
-            List<Customer> listCust = new List<Customer>();
-            listCust.Add(customer1);
-            listCust.Add(customer2);
-            listCust.Add(customer3);
-            listCust.Add(customer4);
+            List<Customer>listCustomer = customerArray.ToList();
+            foreach(Customer cust in listCustomer)
+            {
+                Console.WriteLine($"ID = {cust.ID}, Ime = {cust.Ime}, Placa = {cust.Placa}");
+            }
 
-            int index = listCust.FindLastIndex(cust => cust.Placa > 7000);//metoda vraca index zadnjeg elementa koji odgovara uvijetu koji je definiran lambda izrazom.
-            Console.WriteLine("Index = " + index);
         }
     }
 }
