@@ -46,13 +46,11 @@ namespace Liste
             listCust.Add(customer2);
             listCust.Add(customer3);
             listCust.Insert(0, customer3);//ubacuje element na 0-tu poziciju
+            Console.WriteLine(listCust.IndexOf(customer3));//dohvaca poziciju prvog customer3 objekta u listi pocevsi od nultog indeksa u listi
+            Console.WriteLine(listCust.IndexOf(customer3,1));//dohvaca poziciju prvog customer3 objekta u listi pocevsi od prvog indeksa u listi
+            Console.WriteLine(listCust.IndexOf(customer3,1,3));//dohvaca poziciju prvog customer3 objekta u listi pocevsi od prvog indeksa u listi, te ide do drugog elementa u listi
 
-            foreach(Customer c in listCust)
-            {
-                Console.WriteLine(c.ID);
-            }
 
-          
         }
     }
 }
