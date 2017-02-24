@@ -53,10 +53,8 @@ namespace Liste
             listCust.Add(customer3);
             listCust.Add(customer4);
 
-            int index = listCust.FindIndex(cust => cust.Placa > 6000);//metoda vraca index prvog elementa koji odgovara uvijetu koji je definiran lambda izrazom.
+            int index = listCust.FindLastIndex(cust => cust.Placa > 7000);//metoda vraca index zadnjeg elementa koji odgovara uvijetu koji je definiran lambda izrazom.
             Console.WriteLine("Index = " + index);
-            int index2 = listCust.FindIndex(2, cust => cust.Placa > 6000);//metoda vraca index prvog elementa koji odgovara uvijetu koji je definiran lambda izrazom i rasponu koji smo zadali
-          
         }
     }
 }
