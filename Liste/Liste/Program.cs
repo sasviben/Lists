@@ -52,11 +52,12 @@ namespace Liste
             listCustomers.Add(customer3);
             listCustomers.Add(customer4);
 
-            Customer[] customerArray = new Customer[4];
-            customerArray = listCustomers.ToArray();
-
-            foreach(Customer cust in customerArray)
+            Dictionary<int, Customer> dictCustomer = listCustomers.ToDictionary(key => key.ID);
+            
+            foreach(KeyValuePair<int,Customer> kvp in dictCustomer)
             {
+                Console.WriteLine($"Key = {kvp.Key}");
+                Customer cust = kvp.Value;
                 Console.WriteLine($"ID = {cust.ID}, Ime = {cust.Ime}, Placa = {cust.Placa}");
             }
 
