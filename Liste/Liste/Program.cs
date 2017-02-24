@@ -46,15 +46,9 @@ namespace Liste
             listCust.Add(customer2);
             listCust.Add(customer3);
 
+            Customer c = listCust.Find(cust => cust.Placa > 6000);//trazi element koji odgovara uvijetu koji je definiran lambda izrazom i vraca prvi element koji se podudara uvijetu
 
-            if (listCust.Exists(cust => cust.Ime.StartsWith("S")))//provjerava da li element postoji u listi bazirano na zadanom uvjetu
-            {
-                Console.WriteLine("Ime koje počinje sa slovom S postoji u listi");
-            }
-            else
-            {
-                Console.WriteLine("Ime koje počinje sa slovom S ne postoji u listi");
-            }
+            Console.WriteLine($"ID = {c.ID}, Ime = {c.Ime}, Placa = {c.Placa}");
         }
     }
 }
