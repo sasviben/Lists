@@ -45,12 +45,16 @@ namespace Liste
             listCust.Add(customer1);
             listCust.Add(customer2);
             listCust.Add(customer3);
-            listCust.Insert(0, customer3);//ubacuje element na 0-tu poziciju
-            Console.WriteLine(listCust.IndexOf(customer3));//dohvaca poziciju prvog customer3 objekta u listi pocevsi od nultog indeksa u listi
-            Console.WriteLine(listCust.IndexOf(customer3,1));//dohvaca poziciju prvog customer3 objekta u listi pocevsi od prvog indeksa u listi
-            Console.WriteLine(listCust.IndexOf(customer3,1,3));//dohvaca poziciju prvog customer3 objekta u listi pocevsi od prvog indeksa u listi, te ide do drugog elementa u listi
-
-
+            listCust.Remove(customer3);
+          
+            if(listCust.Contains(customer3))//provjerava da li element postoji u listi, vraća bool
+            {
+                Console.WriteLine("Customer3 postoji u listi");
+            }
+            else
+            {
+                Console.WriteLine("Customer3 ne postoji u listi");
+            }
         }
     }
 }
