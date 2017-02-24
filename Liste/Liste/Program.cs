@@ -12,7 +12,7 @@ namespace Liste
         public string Ime { get; set; }
         public int Placa { get; set; }
     }
-     class CustomerSaving : Customer
+     class CustomerSaving
     {
 
     }
@@ -45,10 +45,13 @@ namespace Liste
             listCust.Add(customer1);
             listCust.Add(customer2);
             listCust.Add(customer3);
+            listCust.Insert(0, customer3);//ubacuje element na 0-tu poziciju
 
-            CustomerSaving cs = new CustomerSaving();
+            foreach(Customer c in listCust)
+            {
+                Console.WriteLine(c.ID);
+            }
 
-            listCust.Add(cs);
           
         }
     }
