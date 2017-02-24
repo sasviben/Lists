@@ -21,6 +21,7 @@ namespace Liste
     {
         static void Main(string[] args)
         {
+            
             Customer customer1 = new Customer()
             {
                 ID = 10,
@@ -58,24 +59,78 @@ namespace Liste
                 Placa = 2500,
                 Tip = "CorporateCustomer"
             };
-            List<Customer> listRetailCustomers = new List<Customer>();
-            listRetailCustomers.Add(customer1);
-            listRetailCustomers.Add(customer2);
-            listRetailCustomers.Add(customer3);
+             List<Customer> listCustomers = new List<Customer>();
+            listCustomers.Add(customer1);
+            listCustomers.Add(customer2);
+            listCustomers.Add(customer3);
 
+            listCustomers.Sort();//TODO: implement Compare funkciju kako bi mogao sortirati kompleksne tipove podataka
 
-            List<Customer> listCorporateCustomers = new List<Customer>();
-            listCorporateCustomers.Add(customer4);
-            listCorporateCustomers.Add(customer5);
+             List<Customer> listCorporateCustomers = new List<Customer>();
+             listCorporateCustomers.Add(customer4);
+             listCorporateCustomers.Add(customer5);
 
+             foreach (Customer c1 in listCustomers)
+             {
+                 Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
+             }
+             
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            List<int> numbers = new List<int>() { 1, 8, 7, 5, 2, 3, 4, 9, 6 };
 
-            listRetailCustomers.InsertRange(3, listCorporateCustomers);//omogucava da ubacimo drugu listu elemenata u prvu listu elemenata na određenu poziciju
+            Console.WriteLine("Numbers before sorting");
 
-            listRetailCustomers.RemoveAll(x => x.Tip == "CorporateCustomer");//uklanja sve elemente u listi koji odgovaraju navedenom uvjetu
-            foreach (Customer c1 in listRetailCustomers)
+            foreach (int number in numbers)
             {
-                Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
+                Console.WriteLine(number);
             }
+
+            Console.WriteLine("Sortirana lista uzlazno");
+
+            numbers.Sort();//sortira brojeve uzlaznim redosljedom
+
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+
+            Console.WriteLine("Sortirana lista silazno");
+
+            numbers.Reverse();//obrne redoslijed elemenata u listi, zadnji je na prvom mjestu, predzadnji na drugom...
+
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+
+            List<string> alfabet = new List<string>() { "B", "F", "D", "E", "A", "C" };
+
+            Console.WriteLine("Alfabet prije sortiranja");
+
+            foreach (string slovo in alfabet)
+            {
+                Console.WriteLine(slovo);
+            }
+
+            Console.WriteLine("Sortirana lista uzlazno");
+
+            alfabet.Sort();
+
+            foreach (string slovo in alfabet)
+            {
+                Console.WriteLine(slovo);
+            }
+
+            Console.WriteLine("Sortirana lista silazno");
+
+            alfabet.Reverse();
+
+            foreach (string slovo in alfabet)
+            {
+                Console.WriteLine(slovo);
+            }
+
+
         }
     }
 }
