@@ -45,15 +45,15 @@ namespace Liste
             listCust.Add(customer1);
             listCust.Add(customer2);
             listCust.Add(customer3);
-            listCust.Remove(customer3);
-          
-            if(listCust.Contains(customer3))//provjerava da li element postoji u listi, vraća bool
+
+
+            if (listCust.Exists(cust => cust.Ime.StartsWith("S")))//provjerava da li element postoji u listi bazirano na zadanom uvjetu
             {
-                Console.WriteLine("Customer3 postoji u listi");
+                Console.WriteLine("Ime koje počinje sa slovom S postoji u listi");
             }
             else
             {
-                Console.WriteLine("Customer3 ne postoji u listi");
+                Console.WriteLine("Ime koje počinje sa slovom S ne postoji u listi");
             }
         }
     }
