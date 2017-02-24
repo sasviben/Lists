@@ -12,6 +12,10 @@ namespace Liste
         public string Ime { get; set; }
         public int Placa { get; set; }
     }
+     class CustomerSaving : Customer
+    {
+
+    }
     class Program
     {
         static void Main(string[] args)
@@ -42,11 +46,9 @@ namespace Liste
             listCust.Add(customer2);
             listCust.Add(customer3);
 
-            foreach (Customer c in listCust)
-            {
-                Console.WriteLine($"ID = {c.ID}, Ime = {c.Ime}, Placa = {c.Placa}");
-            }
+            CustomerSaving cs = new CustomerSaving();
 
+            listCust.Add(cs);
           
         }
     }
