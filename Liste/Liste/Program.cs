@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Liste
 {
-    class Customer : IComparable<Customer>
+     class Customer : IComparable<Customer>
     {
         public int ID { get; set; }
         public string Ime { get; set; }
@@ -15,26 +15,26 @@ namespace Liste
 
         int IComparable<Customer>.CompareTo(Customer other)
         {
-            if (this.Placa > other.Placa)
+            /*if (this.Placa > other.Placa)
                 return 1;
             else if (this.Placa < other.Placa)
                 return -1;
             else
-                return 0;
+                return 0;*/
+
+            return this.Placa.CompareTo(other.Placa);//kraci zapis
         }
 
-       /* int CompareTo(Customer other)//Implementacija CompareTo metode iz IComparable<> interfacea
-        {
-            if (this.Placa > other.Placa)
-                return 1;
-            else if (this.Placa < other.Placa)
-                return -1;
-            else
-                return 0;
-        }*/
+      
 
     }
-
+     class SortByName : IComparer<Customer>
+    {
+        public int Compare(Customer x, Customer y)
+        {
+            return x.Ime.CompareTo(y.Ime);
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -97,16 +97,18 @@ namespace Liste
                 Console.WriteLine($"Placa = {c1.Placa}");
             }
 
-            List<Customer> listCorporateCustomers = new List<Customer>();
-             listCorporateCustomers.Add(customer4);
-             listCorporateCustomers.Add(customer5);
+            SortByName sbn = new SortByName();
+            listCustomers.Sort(sbn);
 
-             foreach (Customer c1 in listCustomers)
-             {
-                 Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
-             }
-             
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            Console.WriteLine("Sort by name");
+            foreach (Customer c1 in listCustomers)
+            {
+                Console.WriteLine($"Ime = {c1.Ime}");
+            }
+
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             List<int> numbers = new List<int>() { 1, 8, 7, 5, 2, 3, 4, 9, 6 };
 
             Console.WriteLine("Numbers before sorting");
