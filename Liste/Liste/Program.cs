@@ -46,9 +46,12 @@ namespace Liste
             listCust.Add(customer2);
             listCust.Add(customer3);
 
-            Customer c = listCust.Find(cust => cust.Placa > 6000);// trazi element koji odgovara uvijetu koji je definiran lambda izrazom i vraca zadnji element koji se podudara uvijetu
+            List<Customer> customers = listCust.FindAll(cust => cust.Placa > 6000);// vraca sve elemente koji odgovaraju uvijetu koji je definiran lambda izrazom
 
-            Console.WriteLine($"ID = {c.ID}, Ime = {c.Ime}, Placa = {c.Placa}");
+            foreach(Customer customer in customers)
+            {
+                Console.WriteLine($"ID = {customer.ID}, Ime = {customer.Ime}, Placa = {customer.Placa}");
+            }
         }
     }
 }
