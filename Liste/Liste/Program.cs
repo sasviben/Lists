@@ -71,7 +71,7 @@ namespace Liste
 
             listRetailCustomers.InsertRange(3, listCorporateCustomers);//omogucava da ubacimo drugu listu elemenata u prvu listu elemenata na određenu poziciju
 
-            listRetailCustomers.RemoveRange(3, 2);//uklanja zadani raspon elemenata u listi, pocetni index u listi i broj elemenata koje treba ukloniti
+            listRetailCustomers.RemoveAll(x => x.Tip == "CorporateCustomer");//uklanja sve elemente u listi koji odgovaraju navedenom uvjetu
             foreach (Customer c1 in listRetailCustomers)
             {
                 Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
