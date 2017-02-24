@@ -73,6 +73,13 @@ namespace Liste
             {
                 Console.WriteLine($"ID = {c.ID}, Ime = {c.Ime}, Placa = {c.Placa}, Tip = {c.Tip}");
             }
+            Console.WriteLine();
+            Console.WriteLine();
+            List<Customer> cust = listRetailCustomers.GetRange(3, 2);//vraca listu iz druge liste. Prvi parametar je index pocetka liste, a drugi parametar je broj elemenata koje treba vratiti
+            foreach (Customer c1 in cust)
+            {
+                Console.WriteLine($"ID = {c1.ID}, Ime = {c1.Ime}, Placa = {c1.Placa}, Tip = {c1.Tip}");
+            }
         }
     }
 }
