@@ -6,17 +6,35 @@ using System.Threading.Tasks;
 
 namespace Liste
 {
-    class Customer
+    class Customer : IComparable<Customer>
     {
         public int ID { get; set; }
         public string Ime { get; set; }
         public int Placa { get; set; }
         public string Tip { get; set; }
-    }
-     class CustomerSaving
-    {
+
+        int IComparable<Customer>.CompareTo(Customer other)
+        {
+            if (this.Placa > other.Placa)
+                return 1;
+            else if (this.Placa < other.Placa)
+                return -1;
+            else
+                return 0;
+        }
+
+       /* int CompareTo(Customer other)//Implementacija CompareTo metode iz IComparable<> interfacea
+        {
+            if (this.Placa > other.Placa)
+                return 1;
+            else if (this.Placa < other.Placa)
+                return -1;
+            else
+                return 0;
+        }*/
 
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -26,7 +44,7 @@ namespace Liste
             {
                 ID = 10,
                 Ime = "Sandro",
-                Placa = 6000,
+                Placa = 9000,
                 Tip = "RetailCustomer"
             };
 
@@ -34,7 +52,7 @@ namespace Liste
             {
                 ID = 11,
                 Ime = "Filip",
-                Placa = 9000,
+                Placa = 6000,
                 Tip = "RetailCustomer"
             };
 
@@ -64,9 +82,22 @@ namespace Liste
             listCustomers.Add(customer2);
             listCustomers.Add(customer3);
 
+            Console.WriteLine("Prije sortiranja");
+            foreach (Customer c1 in listCustomers)
+            {
+                Console.WriteLine($"Placa = {c1.Placa}");
+            }
+
+            Console.WriteLine("Nakon sortiranja");
+
             listCustomers.Sort();//TODO: implement Compare funkciju kako bi mogao sortirati kompleksne tipove podataka
 
-             List<Customer> listCorporateCustomers = new List<Customer>();
+            foreach (Customer c1 in listCustomers)
+            {
+                Console.WriteLine($"Placa = {c1.Placa}");
+            }
+
+            List<Customer> listCorporateCustomers = new List<Customer>();
              listCorporateCustomers.Add(customer4);
              listCorporateCustomers.Add(customer5);
 
