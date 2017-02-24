@@ -11,6 +11,7 @@ namespace Liste
         public int ID { get; set; }
         public string Ime { get; set; }
         public int Placa { get; set; }
+        public string Tip { get; set; }
     }
      class CustomerSaving
     {
@@ -24,43 +25,54 @@ namespace Liste
             {
                 ID = 10,
                 Ime = "Sandro",
-                Placa = 6000
+                Placa = 6000,
+                Tip = "RetailCustomer"
             };
 
             Customer customer2 = new Customer()
             {
                 ID = 11,
                 Ime = "Filip",
-                Placa = 9000
+                Placa = 9000,
+                Tip = "RetailCustomer"
             };
 
             Customer customer3 = new Customer()
             {
                 ID = 12,
                 Ime = "Hrvoje",
-                Placa = 15000
+                Placa = 15000,
+                Tip = "RetailCustomer"
             };
             Customer customer4 = new Customer()
             {
                 ID = 13,
                 Ime = "Vlado",
-                Placa = 25000
+                Placa = 25000,
+                Tip = "CorporateCustomer"
             };
-            List<Customer> listCustomers = new List<Customer>();
-            listCustomers.Add(customer1);
-            listCustomers.Add(customer2);
-            listCustomers.Add(customer3);
-            listCustomers.Add(customer4);
-
-            Dictionary<int, Customer> dictCustomer = listCustomers.ToDictionary(key => key.ID);
-            
-            foreach(KeyValuePair<int,Customer> kvp in dictCustomer)
+            Customer customer5 = new Customer()
             {
-                Console.WriteLine($"Key = {kvp.Key}");
-                Customer cust = kvp.Value;
-                Console.WriteLine($"ID = {cust.ID}, Ime = {cust.Ime}, Placa = {cust.Placa}");
-            }
+                ID = 14,
+                Ime = "Snježana",
+                Placa = 2500,
+                Tip = "CorporateCustomer"
+            };
+            List<Customer> listRetailCustomers = new List<Customer>();
+            listRetailCustomers.Add(customer1);
+            listRetailCustomers.Add(customer2);
+            listRetailCustomers.Add(customer3);
 
+
+            List<Customer> listCorporateCustomers = new List<Customer>();
+            listCorporateCustomers.Add(customer4);
+            listCorporateCustomers.Add(customer5);
+
+            listRetailCustomers.AddRange(listCorporateCustomers);//ubacuje listCorporateCustomers listu na kraj listRetailCustomers liste
+            foreach (Customer c in listRetailCustomers)
+            {
+                Console.WriteLine($"ID = {c.ID}, Ime = {c.Ime}, Placa = {c.Placa}, Tip = {c.Tip}");
+            }
         }
     }
 }
