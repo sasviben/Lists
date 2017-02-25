@@ -81,6 +81,8 @@ namespace Liste
             listCustomers.Add(customer1);
             listCustomers.Add(customer3);
             listCustomers.Add(customer2);
+            listCustomers.Add(customer4);
+            listCustomers.Add(customer5);
 
             Console.WriteLine("prije sortiranja");
             foreach(Customer c in listCustomers)
@@ -89,7 +91,8 @@ namespace Liste
             }
             Console.WriteLine("nakon sortiranja");
 
-            listCustomers.Sort(delegate(Customer c1, Customer c2){ return c1.ID.CompareTo(c2.ID); });//kraći zapis
+            listCustomers.Sort((x,y) => x.ID.CompareTo(y.ID));//jos kraći zapis koristeći labda izraze :)
+
             foreach (Customer c in listCustomers)
             {
                 Console.WriteLine(c.ID);
