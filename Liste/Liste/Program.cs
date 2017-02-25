@@ -79,91 +79,27 @@ namespace Liste
             };
              List<Customer> listCustomers = new List<Customer>();
             listCustomers.Add(customer1);
-            listCustomers.Add(customer2);
             listCustomers.Add(customer3);
+            listCustomers.Add(customer2);
 
-            Console.WriteLine("Prije sortiranja");
-            foreach (Customer c1 in listCustomers)
+
+            Comparison<Customer> customerComparer = new Comparison<Customer>(ComparCustomer);//Comparison delegat pokazuje na metodu ComparCustomer koja radi usporedbu
+
+            Console.WriteLine("prije sortiranja");
+            foreach(Customer c in listCustomers)
             {
-                Console.WriteLine($"Placa = {c1.Placa}");
+                Console.WriteLine(c.ID);
             }
-
-            Console.WriteLine("Nakon sortiranja");
-
-            listCustomers.Sort();//TODO: implement Compare funkciju kako bi mogao sortirati kompleksne tipove podataka
-
-            foreach (Customer c1 in listCustomers)
+            Console.WriteLine("nakon sortiranja");
+            listCustomers.Sort(customerComparer);
+            foreach (Customer c in listCustomers)
             {
-                Console.WriteLine($"Placa = {c1.Placa}");
+                Console.WriteLine(c.ID);
             }
-
-            SortByName sbn = new SortByName();
-            listCustomers.Sort(sbn);
-
-
-            Console.WriteLine("Sort by name");
-            foreach (Customer c1 in listCustomers)
-            {
-                Console.WriteLine($"Ime = {c1.Ime}");
-            }
-
-
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            List<int> numbers = new List<int>() { 1, 8, 7, 5, 2, 3, 4, 9, 6 };
-
-            Console.WriteLine("Numbers before sorting");
-
-            foreach (int number in numbers)
-            {
-                Console.WriteLine(number);
-            }
-
-            Console.WriteLine("Sortirana lista uzlazno");
-
-            numbers.Sort();//sortira brojeve uzlaznim redosljedom
-
-            foreach (int number in numbers)
-            {
-                Console.WriteLine(number);
-            }
-
-            Console.WriteLine("Sortirana lista silazno");
-
-            numbers.Reverse();//obrne redoslijed elemenata u listi, zadnji je na prvom mjestu, predzadnji na drugom...
-
-            foreach (int number in numbers)
-            {
-                Console.WriteLine(number);
-            }
-
-            List<string> alfabet = new List<string>() { "B", "F", "D", "E", "A", "C" };
-
-            Console.WriteLine("Alfabet prije sortiranja");
-
-            foreach (string slovo in alfabet)
-            {
-                Console.WriteLine(slovo);
-            }
-
-            Console.WriteLine("Sortirana lista uzlazno");
-
-            alfabet.Sort();
-
-            foreach (string slovo in alfabet)
-            {
-                Console.WriteLine(slovo);
-            }
-
-            Console.WriteLine("Sortirana lista silazno");
-
-            alfabet.Reverse();
-
-            foreach (string slovo in alfabet)
-            {
-                Console.WriteLine(slovo);
-            }
-
-
+        }
+        private static int ComparCustomer(Customer x, Customer y)
+        {
+            return x.ID.CompareTo(y.ID);
         }
     }
 }
