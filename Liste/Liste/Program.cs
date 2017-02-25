@@ -84,19 +84,8 @@ namespace Liste
             listCustomers.Add(customer4);
             listCustomers.Add(customer5);
 
-            Console.WriteLine("prije sortiranja");
-            foreach(Customer c in listCustomers)
-            {
-                Console.WriteLine(c.ID);
-            }
-            Console.WriteLine("nakon sortiranja");
+            Console.WriteLine("Da li su sve place vece od 5000 kn " + listCustomers.TrueForAll(x => x.Placa > 1000));//provjerava da li svaki element odgovara uvjetu zadanom predikatom, vraca bool
 
-            listCustomers.Sort((x,y) => x.ID.CompareTo(y.ID));//jos kraći zapis koristeći labda izraze :)
-
-            foreach (Customer c in listCustomers)
-            {
-                Console.WriteLine(c.ID);
-            }
         }
        
     }
