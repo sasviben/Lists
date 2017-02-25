@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Liste
 {
@@ -84,7 +85,8 @@ namespace Liste
             listCustomers.Add(customer4);
             listCustomers.Add(customer5);
 
-            Console.WriteLine("Da li su sve place vece od 5000 kn " + listCustomers.TrueForAll(x => x.Placa > 1000));//provjerava da li svaki element odgovara uvjetu zadanom predikatom, vraca bool
+            ReadOnlyCollection<Customer> readOnlyCustomers = listCustomers.AsReadOnly();//radi omotac oko liste tako da se moze samo citati, ne moze se modificirati
+            Console.WriteLine("Items = " + readOnlyCustomers.Count());
 
         }
        
