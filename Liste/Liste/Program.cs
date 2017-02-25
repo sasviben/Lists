@@ -82,24 +82,19 @@ namespace Liste
             listCustomers.Add(customer3);
             listCustomers.Add(customer2);
 
-
-            Comparison<Customer> customerComparer = new Comparison<Customer>(ComparCustomer);//Comparison delegat pokazuje na metodu ComparCustomer koja radi usporedbu
-
             Console.WriteLine("prije sortiranja");
             foreach(Customer c in listCustomers)
             {
                 Console.WriteLine(c.ID);
             }
             Console.WriteLine("nakon sortiranja");
-            listCustomers.Sort(customerComparer);
+
+            listCustomers.Sort(delegate(Customer c1, Customer c2){ return c1.ID.CompareTo(c2.ID); });//kraći zapis
             foreach (Customer c in listCustomers)
             {
                 Console.WriteLine(c.ID);
             }
         }
-        private static int ComparCustomer(Customer x, Customer y)
-        {
-            return x.ID.CompareTo(y.ID);
-        }
+       
     }
 }
